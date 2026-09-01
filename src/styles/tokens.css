@@ -1,0 +1,94 @@
+:root {
+  /* Scrollbar Visual Design Tokens - Ontada Design System 
+   * Figma Reference: https://www.figma.com/design/F2VsZ1PGoH4zCtYYOzYhzChw/Ontada-Design-System?node-id=60489-144411
+   * 
+   * Specifications (applies to BOTH horizontal and vertical scrollbars):
+   * 
+   * Desktop/Tablet (≥768px):
+   * - Width/Height: 8px (same for both directions)
+   * - Border Radius: 4px (normal state) → 8px (hover/active state)
+   * - Offset: 3px from container edges
+   * 
+   * Mobile (<768px):
+   * - Width/Height: 6px (reduced for touch devices)
+   * - Border Radius: 3px (normal state) → 6px (hover/active state)
+   * - Offset: 2px from container edges
+   * 
+   * - Type: Overlay (transparent track, visible thumb only)
+   * 
+   * Colors (from Figma design tokens):
+   * - Normal: #bac5cc (var(--fill/element-disabled)) @ 90% opacity
+   * - Hover/Active: #627386 (var(--fill/content-light)) @ 80% opacity
+   */
+
+  /* Desktop/Tablet (≥768px) - Default */
+  --sb-width: 8px; /* Width for vertical, height for horizontal */
+  --sb-radius: 4px; /* Border-radius in normal state */
+  --sb-radius-active: 8px; /* Border-radius in hover/active state */
+  --sb-offset: 3px; /* Distance from edge for overlay positioning */
+
+  /* Light Mode (Default) - Ontada Colors */
+  --sb-track-bg: transparent; /* Overlay scrollbar - no visible track */
+  --sb-thumb-bg: rgba(186, 197, 204, 0.9); /* #bac5cc at 90% opacity */
+  --sb-thumb-bg-hover: rgba(98, 115, 134, 0.8); /* #627386 at 80% opacity */
+  --sb-thumb-bg-active: rgba(98, 115, 134, 0.8); /* #627386 at 80% opacity */
+  --sb-track-margin: 0px; /* No margin for overlay style */
+}
+
+/* Mobile breakpoint - Tablet and below (<768px) */
+@media (max-width: 767px) {
+  :root {
+    --sb-width: 6px; /* Reduced for mobile/touch devices */
+    --sb-radius: 3px; /* Proportionally reduced */
+    --sb-radius-active: 6px; /* Proportionally reduced */
+    --sb-offset: 2px; /* Reduced gap for smaller screens */
+  }
+}
+
+[data-theme="dark"] {
+  /* Dark mode - can be customized if Ontada has dark theme specs */
+  --sb-track-bg: transparent;
+  --sb-thumb-bg: rgba(186, 197, 204, 0.9);
+  --sb-thumb-bg-hover: rgba(98, 115, 134, 0.8);
+  --sb-thumb-bg-active: rgba(98, 115, 134, 0.8);
+}
+
+/* Global utility classes for the POC */
+.scroll-container-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Accessibility: High Contrast Mode / Forced Colors */
+@media (forced-colors: active) {
+  :root {
+    --sb-thumb-bg: ButtonText;
+    --sb-thumb-bg-hover: ButtonText;
+    --sb-thumb-bg-active: ButtonText;
+    --sb-track-bg: Canvas;
+  }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .simplebar-scrollbar::before,
+  .custom-scrollbar-thumb-y,
+  .custom-scrollbar-thumb-x,
+  .os-scrollbar-handle {
+    transition: none !important;
+  }
+
+  .native-scrollbar-container {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Accessibility: High Contrast Enhancement */
+@media (prefers-contrast: high) {
+  :root {
+    --sb-thumb-bg: rgba(0, 0, 0, 1);
+    --sb-thumb-bg-hover: rgba(0, 0, 0, 1);
+    --sb-thumb-bg-active: rgba(0, 0, 0, 1);
+  }
+}

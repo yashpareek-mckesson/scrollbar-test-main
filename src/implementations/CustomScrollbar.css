@@ -1,0 +1,92 @@
+.custom-scrollbar-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.custom-scrollbar-content {
+  width: 100%;
+  height: 100%;
+  overflow: scroll; /* Both axes */
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.custom-scrollbar-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Vertical Track - Ontada Design System Overlay Style (Responsive) */
+.custom-scrollbar-track-y {
+  position: absolute;
+  top: var(--sb-offset); /* Responsive: 3px desktop, 2px mobile */
+  right: var(--sb-offset); /* Responsive: 3px desktop, 2px mobile */
+  /* Stop before horizontal scrollbar area */
+  bottom: calc(var(--sb-offset) + var(--sb-width));
+  width: var(--sb-width); /* Responsive: 8px desktop, 6px mobile */
+  background-color: transparent;
+  border-radius: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.custom-scrollbar-thumb-y {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--sb-width); /* Responsive: 8px desktop, 6px mobile */
+  background-color: var(--sb-thumb-bg); /* #bac5cc at 90% opacity */
+  border-radius: var(--sb-radius); /* 4px */
+  cursor: pointer;
+  pointer-events: auto;
+  transition:
+    background-color 0.2s ease,
+    border-radius 0.2s ease;
+}
+
+/* Horizontal Track - Ontada Design System Overlay Style (Responsive) */
+.custom-scrollbar-track-x {
+  position: absolute;
+  left: var(--sb-offset); /* Responsive: 3px desktop, 2px mobile */
+  bottom: var(--sb-offset); /* Responsive: 3px desktop, 2px mobile */
+  /* Stop before vertical scrollbar area */
+  right: calc(var(--sb-offset) + var(--sb-width));
+  height: var(--sb-width); /* Responsive: 8px desktop, 6px mobile */
+  background-color: transparent;
+  border-radius: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.custom-scrollbar-thumb-x {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: var(--sb-width); /* Responsive: 8px desktop, 6px mobile */
+  background-color: var(--sb-thumb-bg); /* #bac5cc at 90% opacity */
+  border-radius: var(--sb-radius); /* Responsive: 4px desktop, 3px mobile */
+  cursor: pointer;
+  pointer-events: auto;
+  transition:
+    background-color 0.2s ease,
+    border-radius 0.2s ease;
+}
+
+/* Shared Thumb states - Ontada Design System (applies to both directions) */
+.custom-scrollbar-thumb-y:hover,
+.custom-scrollbar-thumb-x:hover {
+  background-color: var(--sb-thumb-bg-hover); /* #627386 at 80% opacity */
+  border-radius: var(
+    --sb-radius-active
+  ); /* Responsive: 8px desktop, 6px mobile */
+}
+
+.custom-scrollbar-thumb-y.is-dragging,
+.custom-scrollbar-thumb-x.is-dragging {
+  background-color: var(--sb-thumb-bg-active); /* #627386 at 80% opacity */
+  border-radius: var(
+    --sb-radius-active
+  ); /* Responsive: 8px desktop, 6px mobile */
+}

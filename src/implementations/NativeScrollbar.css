@@ -1,0 +1,150 @@
+.native-scrollbar-container {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+
+  /* Firefox - Ontada Design System
+   * Note: Firefox has limited customization - only width and color control
+   * Cannot achieve exact responsive width/offset or border-radius transitions
+   * Uses CSS variable --sb-thumb-bg which responds to breakpoints
+   */
+  scrollbar-width: thin;
+  scrollbar-color: var(--sb-thumb-bg) transparent;
+}
+
+/* Chrome, Edge, Safari - Ontada Design System Overlay Style
+ * Figma Spec: https://www.figma.com/design/F2VsZ1PGoH4zCtYYOzYhzChw/Ontada-Design-System?node-id=60489-144411
+ * 
+ * RESPONSIVE DIMENSIONS (direct @media queries for webkit-scrollbar compatibility):
+ * 
+ * Desktop/Tablet (≥768px):
+ * - Width: 8px, Offset: 3px from edges
+ * - Border-radius: 4px (normal) → 8px (hover)
+ * 
+ * Mobile (<768px):
+ * - Width: 6px, Offset: 2px from edges
+ * - Border-radius: 3px (normal) → 6px (hover)
+ * 
+ * Note: Using direct values instead of CSS variables for webkit-scrollbar
+ * pseudo-elements due to browser compatibility issues with CSS custom properties.
+ */
+
+/* Desktop/Tablet (≥768px) - Default */
+.native-scrollbar-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Mobile (<768px) - Responsive */
+@media (max-width: 767px) {
+  .native-scrollbar-container::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+/* Hide scrollbar arrow buttons (Windows) */
+.native-scrollbar-container::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.native-scrollbar-container::-webkit-scrollbar-track {
+  background: transparent; /* Transparent track for overlay effect */
+}
+
+/* Vertical scrollbar track - creates responsive offset from edges */
+.native-scrollbar-container::-webkit-scrollbar-track:vertical {
+  margin-top: 3px; /* Desktop: 3px offset */
+  margin-right: 0;
+  margin-bottom: calc(
+    3px + 8px
+  ); /* Desktop: 11px (3px offset + 8px scrollbar) */
+  margin-left: 0;
+}
+
+/* Mobile responsive offset */
+@media (max-width: 767px) {
+  .native-scrollbar-container::-webkit-scrollbar-track:vertical {
+    margin-top: 2px; /* Mobile: 2px offset */
+    margin-bottom: calc(
+      2px + 6px
+    ); /* Mobile: 8px (2px offset + 6px scrollbar) */
+  }
+}
+
+/* Horizontal scrollbar track - creates responsive offset from edges */
+.native-scrollbar-container::-webkit-scrollbar-track:horizontal {
+  margin-top: 0;
+  margin-right: calc(
+    3px + 8px
+  ); /* Desktop: 11px (3px offset + 8px scrollbar) */
+  margin-bottom: 0;
+  margin-left: 3px; /* Desktop: 3px offset */
+}
+
+/* Mobile responsive offset */
+@media (max-width: 767px) {
+  .native-scrollbar-container::-webkit-scrollbar-track:horizontal {
+    margin-right: calc(
+      2px + 6px
+    ); /* Mobile: 8px (2px offset + 6px scrollbar) */
+    margin-left: 2px; /* Mobile: 2px offset */
+  }
+}
+
+/* Scrollbar thumb - Figma Design Tokens (Responsive)
+ * Desktop (≥768px): #bac5cc @ 90%, 4px radius → #627386 @ 80%, 8px radius (hover)
+ * Mobile (<768px): #bac5cc @ 90%, 3px radius → #627386 @ 80%, 6px radius (hover)
+ * Minimum size: 60px to ensure visibility
+ */
+.native-scrollbar-container::-webkit-scrollbar-thumb {
+  background-color: var(--sb-thumb-bg); /* rgba(186, 197, 204, 0.9) */
+  border-radius: 4px; /* Desktop: 4px */
+  border: 0;
+  min-width: 60px; /* Minimum horizontal thumb width */
+  min-height: 60px; /* Minimum vertical thumb height */
+  background-clip: padding-box;
+  transition:
+    background-color 0.2s ease,
+    border-radius 0.2s ease;
+}
+
+/* Mobile responsive border-radius */
+@media (max-width: 767px) {
+  .native-scrollbar-container::-webkit-scrollbar-thumb {
+    border-radius: 3px; /* Mobile: 3px */
+  }
+}
+
+/* Hover state - border-radius expands (responsive) */
+.native-scrollbar-container::-webkit-scrollbar-thumb:hover {
+  background-color: var(--sb-thumb-bg-hover); /* rgba(98, 115, 134, 0.8) */
+  border-radius: 8px; /* Desktop: 8px */
+}
+
+/* Mobile responsive hover border-radius */
+@media (max-width: 767px) {
+  .native-scrollbar-container::-webkit-scrollbar-thumb:hover {
+    border-radius: 6px; /* Mobile: 6px */
+  }
+}
+
+/* Active/dragging state - same as hover */
+.native-scrollbar-container::-webkit-scrollbar-thumb:active {
+  background-color: var(--sb-thumb-bg-active); /* rgba(98, 115, 134, 0.8) */
+  border-radius: 8px; /* Desktop: 8px */
+}
+
+/* Mobile responsive active border-radius */
+@media (max-width: 767px) {
+  .native-scrollbar-container::-webkit-scrollbar-thumb:active {
+    border-radius: 6px; /* Mobile: 6px */
+  }
+}
+
+/* Corner where both scrollbars meet - transparent for overlay effect */
+.native-scrollbar-container::-webkit-scrollbar-corner {
+  background: transparent;
+}

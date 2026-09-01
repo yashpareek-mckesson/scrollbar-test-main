@@ -1,0 +1,56 @@
+.simplebar-scrollbar-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Override SimpleBar styles to match Ontada Design System - Overlay style (Responsive) */
+.simplebar-scrollbar::before {
+  background-color: var(--sb-thumb-bg); /* #bac5cc at 90% opacity */
+  border-radius: var(--sb-radius); /* Responsive: 4px desktop, 3px mobile */
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 1 !important;
+  transition:
+    border-radius 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.simplebar-track {
+  background-color: transparent !important;
+  border-radius: 0;
+}
+
+.simplebar-track.simplebar-vertical {
+  width: var(--sb-width) !important; /* Responsive: 8px desktop, 6px mobile */
+  right: var(--sb-offset) !important; /* Responsive: 3px desktop, 2px mobile */
+  top: var(--sb-offset) !important; /* Responsive: 3px desktop, 2px mobile */
+  /* Stop before horizontal scrollbar area */
+  bottom: calc(var(--sb-offset) + var(--sb-width)) !important;
+}
+
+.simplebar-track.simplebar-horizontal {
+  height: var(--sb-width) !important; /* Responsive: 8px desktop, 6px mobile */
+  bottom: var(--sb-offset) !important; /* Responsive: 3px desktop, 2px mobile */
+  left: var(--sb-offset) !important; /* Responsive: 3px desktop, 2px mobile */
+  /* Stop before vertical scrollbar area */
+  right: calc(var(--sb-offset) + var(--sb-width)) !important;
+}
+
+/* Hover state with darker color and increased border radius - applies to both directions */
+.simplebar-scrollbar.simplebar-hover::before,
+.simplebar-track.simplebar-dragging .simplebar-scrollbar::before {
+  background-color: var(--sb-thumb-bg-hover); /* #627386 at 80% opacity */
+  border-radius: var(
+    --sb-radius-active
+  ); /* Responsive: 8px desktop, 6px mobile */
+}
+
+/* Active/dragging state - applies to both directions */
+.simplebar-track.simplebar-dragging .simplebar-scrollbar::before {
+  background-color: var(--sb-thumb-bg-active); /* #627386 at 80% opacity */
+  border-radius: var(
+    --sb-radius-active
+  ); /* Responsive: 8px desktop, 6px mobile */
+}

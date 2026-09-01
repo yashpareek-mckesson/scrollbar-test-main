@@ -1,0 +1,322 @@
+/* CSS Variables for the Shell UI - Warm Solarized Claude-like Theme */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+:root {
+  /* Warm Solarized Light Theme - Similar to Claude */
+  --shell-bg: #faf8f5; /* Warm cream background */
+  --shell-sidebar: rgba(250, 246, 240, 0.9); /* Warm cream with transparency */
+  --shell-border: #e5ddd5; /* Warm beige border */
+  --shell-text: #2c2416; /* Dark warm brown text */
+  --shell-text-muted: #6b6355; /* Warm gray-brown muted text */
+  --shell-accent: #d97706; /* Warm amber accent */
+  --shell-accent-hover: #b45309; /* Darker amber on hover */
+  --shell-accent-light: #fef3c7; /* Light amber/cream highlight */
+  --glass-shadow:
+    0 4px 6px -1px rgba(44, 36, 22, 0.08), 0 2px 4px -1px rgba(44, 36, 22, 0.04);
+  --glass-backdrop: blur(12px);
+}
+
+[data-theme="dark"] {
+  /* Warm Solarized Dark Theme */
+  --shell-bg: #1c1814; /* Dark warm brown */
+  --shell-sidebar: rgba(32, 28, 24, 0.85);
+  --shell-border: rgba(107, 99, 85, 0.3);
+  --shell-text: #faf8f5; /* Warm cream text */
+  --shell-text-muted: #a8a096; /* Warm gray muted text */
+  --shell-accent: #f59e0b; /* Bright amber accent */
+  --shell-accent-hover: #fbbf24; /* Lighter amber on hover */
+  --shell-accent-light: rgba(245, 158, 11, 0.2);
+  --glass-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+}
+
+/* App Layout */
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--shell-bg);
+  background-image:
+    radial-gradient(at 0% 0%, rgba(217, 119, 6, 0.04) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(245, 158, 11, 0.03) 0px, transparent 50%);
+  color: var(--shell-text);
+  overflow: hidden;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  background-color: var(--shell-sidebar);
+  backdrop-filter: var(--glass-backdrop);
+  -webkit-backdrop-filter: var(--glass-backdrop);
+  border-right: 1px solid var(--shell-border);
+  box-shadow: var(--glass-shadow);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  z-index: 100;
+}
+
+.sidebar-closed .sidebar {
+  transform: translateX(-100%);
+  position: absolute;
+  height: 100%;
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--shell-border);
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: var(--shell-text-muted);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.icon-btn:hover {
+  background-color: var(--shell-bg);
+  color: var(--shell-text);
+}
+
+.sidebar-nav {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--shell-border);
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  color: var(--shell-text);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover {
+  background-color: var(--shell-bg);
+}
+
+.nav-btn.active {
+  background-color: var(--shell-accent-light);
+  color: var(--shell-accent);
+}
+
+.sidebar-section {
+  padding: 1rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.sidebar-section h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--shell-text-muted);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.scenario-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.scenario-btn {
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem 1rem;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  color: var(--shell-text);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.scenario-btn:hover {
+  background-color: var(--shell-bg);
+}
+
+.scenario-btn.active {
+  background-color: var(--shell-border);
+  font-weight: 500;
+}
+
+.sidebar-footer {
+  padding: 1rem;
+  border-top: 1px solid var(--shell-border);
+}
+
+.theme-toggle {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--shell-bg);
+  border: 1px solid var(--shell-border);
+  border-radius: 6px;
+  color: var(--shell-text);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.theme-toggle:hover {
+  border-color: var(--shell-text-muted);
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* Important for flex children to not overflow */
+}
+
+.main-header {
+  height: 60px;
+  background-color: var(--shell-sidebar);
+  backdrop-filter: var(--glass-backdrop);
+  -webkit-backdrop-filter: var(--glass-backdrop);
+  border-bottom: 1px solid var(--shell-border);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  gap: 1rem;
+  z-index: 90;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.toolbar-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.impl-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.impl-selector select {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--shell-border);
+  background-color: var(--shell-bg);
+  color: var(--shell-text);
+  font-size: 0.95rem;
+}
+
+.view-toggle {
+  display: flex;
+  background-color: var(--shell-bg);
+  border-radius: 6px;
+  padding: 2px;
+  border: 1px solid var(--shell-border);
+}
+
+.toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  color: var(--shell-text-muted);
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.toggle-btn:hover {
+  color: var(--shell-text);
+}
+
+.toggle-btn.active {
+  background-color: var(--shell-sidebar);
+  color: var(--shell-text);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.content-area {
+  flex: 1;
+  overflow: hidden; /* Let the scenarios handle their own scrolling */
+  position: relative;
+}
+
+/* Grid Mode */
+.grid-mode-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 100%;
+  width: 100%;
+  gap: 1px; /* border effect */
+  background-color: var(--shell-border);
+}
+
+.grid-cell {
+  background-color: var(--shell-bg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.grid-cell-header {
+  padding: 0.5rem;
+  background-color: var(--shell-sidebar);
+  border-bottom: 1px solid var(--shell-border);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--shell-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  z-index: 20;
+}
+
+.grid-cell-content {
+  flex: 1;
+  overflow: hidden; /* Scroll handled by the wrapper */
+  position: relative;
+}

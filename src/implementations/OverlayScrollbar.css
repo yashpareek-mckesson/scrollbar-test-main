@@ -1,0 +1,81 @@
+.os-scrollbar-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Define the custom theme for OverlayScrollbars - Ontada Design System (Responsive) */
+.os-theme-custom {
+  --os-size: var(--sb-width); /* Responsive: 8px desktop, 6px mobile */
+  --os-padding-perpendicular: 0;
+  --os-padding-axis: 0; /* Reset - we'll use manual positioning instead */
+  --os-track-border-radius: 0;
+  --os-track-bg: transparent;
+  --os-track-bg-hover: transparent;
+  --os-track-bg-active: transparent;
+
+  --os-handle-border-radius: var(
+    --sb-radius
+  ); /* Responsive: 4px desktop, 3px mobile */
+  --os-handle-bg: var(--sb-thumb-bg); /* #bac5cc at 90% opacity */
+  --os-handle-bg-hover: var(--sb-thumb-bg-hover); /* #627386 at 80% opacity */
+  --os-handle-bg-active: var(--sb-thumb-bg-active); /* #627386 at 80% opacity */
+  --os-handle-min-size: 60;
+  --os-handle-max-size: 100;
+}
+
+/* Vertical scrollbar offset from right edge - Desktop (≥768px) */
+.os-theme-custom.os-host .os-scrollbar.os-scrollbar-vertical,
+.os-host.os-theme-custom .os-scrollbar.os-scrollbar-vertical,
+.os-scrollbar-container .os-scrollbar.os-scrollbar-vertical {
+  right: 3px !important; /* Desktop: 3px offset from right edge */
+  top: 3px !important; /* Desktop: 3px offset from top */
+  bottom: calc(
+    3px + 8px
+  ) !important; /* Desktop: Stop before horizontal scrollbar (11px) */
+  width: 8px !important; /* Desktop: 8px width */
+}
+
+/* Horizontal scrollbar offset from bottom edge - Desktop (≥768px) */
+.os-theme-custom.os-host .os-scrollbar.os-scrollbar-horizontal,
+.os-host.os-theme-custom .os-scrollbar.os-scrollbar-horizontal,
+.os-scrollbar-container .os-scrollbar.os-scrollbar-horizontal {
+  bottom: 3px !important; /* Desktop: 3px offset from bottom edge */
+  left: 3px !important; /* Desktop: 3px offset from left */
+  right: calc(
+    3px + 8px
+  ) !important; /* Desktop: Stop before vertical scrollbar (11px) */
+  height: 8px !important; /* Desktop: 8px height */
+}
+
+/* Mobile (<768px) - Responsive offsets */
+@media (max-width: 767px) {
+  .os-theme-custom.os-host .os-scrollbar.os-scrollbar-vertical,
+  .os-host.os-theme-custom .os-scrollbar.os-scrollbar-vertical,
+  .os-scrollbar-container .os-scrollbar.os-scrollbar-vertical {
+    right: 2px !important; /* Mobile: 2px offset from right edge */
+    top: 2px !important; /* Mobile: 2px offset from top */
+    bottom: calc(
+      2px + 6px
+    ) !important; /* Mobile: Stop before horizontal scrollbar (8px) */
+    width: 6px !important; /* Mobile: 6px width */
+  }
+
+  .os-theme-custom.os-host .os-scrollbar.os-scrollbar-horizontal,
+  .os-host.os-theme-custom .os-scrollbar.os-scrollbar-horizontal,
+  .os-scrollbar-container .os-scrollbar.os-scrollbar-horizontal {
+    bottom: 2px !important; /* Mobile: 2px offset from bottom edge */
+    left: 2px !important; /* Mobile: 2px offset from left */
+    right: calc(
+      2px + 6px
+    ) !important; /* Mobile: Stop before vertical scrollbar (8px) */
+    height: 6px !important; /* Mobile: 6px height */
+  }
+}
+
+/* Active state with increased border radius - applies to both directions */
+.os-theme-custom .os-scrollbar-handle:hover,
+.os-theme-custom .os-scrollbar-handle:active {
+  border-radius: var(
+    --sb-radius-active
+  ); /* Responsive: 8px desktop, 6px mobile */
+}
