@@ -18,8 +18,12 @@
 
 /* Mobile Scenario Container */
 @media (max-width: 767px) {
+  .scenario-container {
+    padding-top: env(safe-area-inset-top, 0);
+  }
+
   .scenario-content-padding {
-    padding: 1rem;
+    padding: 1.5rem 1rem 1rem;
     max-width: 100%;
   }
 }
