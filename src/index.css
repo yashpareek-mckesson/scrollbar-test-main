@@ -4,10 +4,34 @@ body {
   box-sizing: border-box;
   background-color: #faf8f5; /* Warm solarized cream */
   color: #2c2416; /* Dark warm brown text */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Optimize scrolling on mobile */
+  -webkit-overflow-scrolling: touch;
+  touch-action: manipulation;
+}
+
+html {
+  /* Smooth scrolling behavior */
+  scroll-behavior: smooth;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: inherit;
+  /* Better tap highlight on mobile */
+  -webkit-tap-highlight-color: rgba(217, 119, 6, 0.2);
+}
+
+/* Mobile-specific global styles */
+@media (max-width: 767px) {
+  body {
+    font-size: 16px; /* Prevents auto-zoom on iOS when focusing inputs */
+  }
+
+  /* Ensure all scrollable areas work smoothly on mobile */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
 }

@@ -12,6 +12,13 @@
   --text-primary: #faf8f5;
 }
 
+/* Mobile Container */
+@media (max-width: 767px) {
+  .pros-cons-container {
+    padding: 1rem;
+  }
+}
+
 /* Header Section */
 .pros-cons-header {
   text-align: center;
@@ -35,6 +42,22 @@
   --border-color: rgba(107, 99, 85, 0.3);
 }
 
+/* Mobile Header */
+@media (max-width: 767px) {
+  .pros-cons-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .pros-cons-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .pros-cons-header .subtitle {
+    font-size: 0.95rem;
+  }
+}
+
 /* Implementation Cards Grid */
 .implementations-grid {
   display: grid;
@@ -43,9 +66,16 @@
   margin-bottom: 3rem;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .implementations-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .implementations-grid {
+    gap: 1.5rem;
+    margin-bottom: 2rem;
   }
 }
 
@@ -76,6 +106,18 @@
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
 }
 
+/* Mobile Card */
+@media (max-width: 767px) {
+  .implementation-card {
+    padding: 1.25rem;
+    border-radius: 10px;
+  }
+
+  .implementation-card:hover {
+    transform: none; /* Disable hover transform on touch devices */
+  }
+}
+
 /* Card Header */
 .card-header {
   margin-bottom: 1.5rem;
@@ -98,6 +140,22 @@
   font-size: 0.95rem;
   color: var(--text-muted, #6b6355);
   font-style: italic;
+}
+
+/* Mobile Card Header */
+@media (max-width: 767px) {
+  .card-header {
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .card-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .impl-subtitle {
+    font-size: 0.9rem;
+  }
 }
 
 /* Pros and Cons Sections */
@@ -217,6 +275,20 @@
   font-size: 2rem;
 }
 
+/* Mobile Summary */
+@media (max-width: 767px) {
+  .summary-section {
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-radius: 10px;
+  }
+
+  .summary-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
 /* Decision Grid */
 .decision-grid {
   display: grid;
@@ -224,9 +296,16 @@
   gap: 1.5rem;
 }
 
+@media (max-width: 1023px) {
+  .decision-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
+
 @media (max-width: 767px) {
   .decision-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }
 
@@ -274,4 +353,24 @@
 
 [data-theme="dark"] .decision-card li::marker {
   color: #f59e0b;
+}
+
+/* Mobile Decision Card */
+@media (max-width: 767px) {
+  .decision-card {
+    padding: 1.25rem;
+  }
+
+  .decision-card:hover {
+    transform: none;
+  }
+
+  .decision-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .decision-card ul {
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
 }

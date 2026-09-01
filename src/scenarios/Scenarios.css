@@ -16,6 +16,14 @@
   --text-primary: #faf8f5; /* Warm cream */
 }
 
+/* Mobile Scenario Container */
+@media (max-width: 767px) {
+  .scenario-content-padding {
+    padding: 1rem;
+    max-width: 100%;
+  }
+}
+
 .text-block {
   margin-bottom: 2rem;
 }
@@ -33,6 +41,23 @@
 
 [data-theme="dark"] .text-block p {
   --text-secondary: #a8a096; /* Warm gray */
+}
+
+/* Mobile Text Block */
+@media (max-width: 767px) {
+  .text-block {
+    margin-bottom: 1.5rem;
+  }
+
+  .text-block h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .text-block p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
 }
 
 /* DataTable */
@@ -90,6 +115,20 @@ th {
   color: #fcd34d;
 }
 
+/* Mobile DataTable */
+@media (max-width: 767px) {
+  th,
+  td {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+
+  .status-badge {
+    font-size: 0.8em;
+    padding: 3px 6px;
+  }
+}
+
 /* Nested Scroll */
 .nested-container-wrapper {
   margin: 2rem 0;
@@ -118,6 +157,31 @@ th {
   border: 1px solid var(--border-color, #e5ddd5);
   border-radius: 4px;
   margin-bottom: 0.5rem;
+}
+
+/* Mobile Nested Scroll */
+@media (max-width: 767px) {
+  .nested-container-wrapper {
+    margin: 1.5rem 0;
+  }
+
+  .nested-container-wrapper h3 {
+    padding: 0.875rem;
+    font-size: 1.1rem;
+  }
+
+  .nested-container-fixed-height {
+    height: 250px;
+  }
+
+  .nested-inner-padding {
+    padding: 0.875rem;
+  }
+
+  .nested-item {
+    padding: 0.875rem;
+    font-size: 0.95rem;
+  }
 }
 
 /* Dynamic Content */
@@ -153,6 +217,27 @@ th {
   background-color: var(--bg-secondary, #f5f2ee); /* Warm light beige */
   border-radius: 4px;
   border-left: 4px solid #d97706; /* Warm amber */
+}
+
+/* Mobile Buttons and Dynamic Content */
+@media (max-width: 767px) {
+  .button-group {
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 1rem 0;
+  }
+
+  .button-group button {
+    padding: 12px 16px;
+    min-height: 44px; /* Touch-friendly */
+    font-size: 0.95rem;
+    width: 100%;
+  }
+
+  .dynamic-item {
+    padding: 0.875rem;
+    font-size: 0.95rem;
+  }
 }
 
 /* Horizontal Cards */
@@ -209,6 +294,40 @@ th {
   margin: 0;
   font-size: 0.9rem;
   color: var(--text-secondary, #666666);
+}
+
+/* Mobile Horizontal Cards */
+@media (max-width: 767px) {
+  .horizontal-gallery-wrapper {
+    height: 300px;
+    margin-top: 1.5rem;
+  }
+
+  .horizontal-gallery-inner {
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .gallery-card {
+    width: 200px;
+  }
+
+  .card-image-placeholder {
+    height: 120px;
+    font-size: 0.9rem;
+  }
+
+  .card-content {
+    padding: 0.875rem;
+  }
+
+  .card-content h4 {
+    font-size: 1rem;
+  }
+
+  .card-content p {
+    font-size: 0.85rem;
+  }
 }
 
 /* Large Canvas (Both Axes) */
@@ -362,4 +481,97 @@ th {
 
 [data-theme="dark"] .timeline-event p {
   color: #aaaaaa;
+}
+
+/* Mobile Large Canvas */
+@media (max-width: 767px) {
+  .canvas-wrapper {
+    padding: 1rem;
+  }
+
+  .canvas-header-info {
+    margin-bottom: 1.5rem;
+    left: 1rem;
+    width: calc(100vw - 4rem);
+    max-width: 500px;
+  }
+
+  .canvas-header-info h2 {
+    font-size: 1.25rem;
+  }
+
+  .canvas-header-info p {
+    font-size: 0.9rem;
+  }
+
+  .canvas-grid {
+    gap: 0.75rem;
+  }
+
+  .canvas-row {
+    gap: 0.75rem;
+  }
+
+  .canvas-cell {
+    width: 120px;
+    height: 120px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile Horizontal Scrolling */
+@media (max-width: 767px) {
+  .horizontal-only-wrapper {
+    height: 100px;
+    margin-top: 1rem;
+  }
+
+  .horizontal-only-content {
+    padding: 0.75rem;
+  }
+
+  .wide-content-bar {
+    gap: 0.75rem;
+  }
+
+  .wide-item {
+    width: 100px;
+    height: 70px;
+    font-size: 0.9rem;
+  }
+
+  .spacer-medium {
+    height: 1.5rem;
+  }
+
+  .horizontal-timeline-wrapper {
+    height: 180px;
+    margin-top: 1rem;
+  }
+
+  .timeline-content {
+    padding: 0.75rem;
+  }
+
+  .timeline-block {
+    width: 130px;
+    padding: 0.5rem;
+  }
+
+  .timeline-hour {
+    font-size: 0.85rem;
+  }
+
+  .timeline-event {
+    padding: 0.4rem;
+    font-size: 0.8rem;
+  }
+
+  .timeline-event strong {
+    font-size: 0.85rem;
+  }
+
+  .timeline-event p {
+    font-size: 0.75rem;
+  }
 }
