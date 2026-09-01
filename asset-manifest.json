@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/scrollbar-test-main/static/css/main.63da6202.css",
+    "main.js": "/scrollbar-test-main/static/js/main.e87fcab4.js",
+    "static/js/453.4e8555d7.chunk.js": "/scrollbar-test-main/static/js/453.4e8555d7.chunk.js",
+    "index.html": "/scrollbar-test-main/index.html",
+    "main.63da6202.css.map": "/scrollbar-test-main/static/css/main.63da6202.css.map",
+    "main.e87fcab4.js.map": "/scrollbar-test-main/static/js/main.e87fcab4.js.map",
+    "453.4e8555d7.chunk.js.map": "/scrollbar-test-main/static/js/453.4e8555d7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.63da6202.css",
+    "static/js/main.e87fcab4.js"
+  ]
+}
